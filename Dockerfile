@@ -29,6 +29,6 @@ ENV JAVA_PARAMETERS="-XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:+CMSClassUnl
 ENV MAX_RAM="4096M"
 ENV MIN_RAM="4096M"
 
-ADD start.sh /start.sh
-RUN chmod 0755 /start.sh
-CMD ["/bin/bash", "start.sh"]
+ADD start.sh /minecraft/start.sh
+RUN chmod 0755 /minecraft/start.sh
+CMD ["/bin/bash", "/minecraft/start.sh"]
