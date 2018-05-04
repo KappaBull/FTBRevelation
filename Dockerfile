@@ -6,6 +6,9 @@ LABEL maintainer='kappabull <kappabull@gmail.com>'
 WORKDIR /minecraft
 USER root
 
+ADD start.sh /minecraft/start.sh
+RUN chmod 0755 /minecraft/start.sh
+
 RUN apt-get update && \
 	apt-get upgrade --yes --force-yes && \
 	apt-get clean && \ 
@@ -29,6 +32,4 @@ ENV JAVA_PARAMETERS="-XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:+CMSClassUnl
 ENV MAX_RAM="4096M"
 ENV MIN_RAM="4096M"
 
-ADD start.sh /minecraft/start.sh
-RUN chmod 0755 /minecraft/start.sh
 CMD ["/bin/bash", "/minecraft/start.sh"]
