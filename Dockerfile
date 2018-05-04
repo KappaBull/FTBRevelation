@@ -6,8 +6,8 @@ LABEL maintainer='kappabull <kappabull@gmail.com>'
 WORKDIR /minecraft
 USER root
 
-ADD start.sh /start.sh
-RUN chmod 0755 /start.sh
+ADD start.sh /minecraft/start.sh
+RUN chmod 0755 /minecraft/start.sh
 
 RUN apt-get update && \
 	apt-get upgrade --yes --force-yes && \
