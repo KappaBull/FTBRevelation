@@ -7,6 +7,7 @@ WORKDIR /minecraft
 USER root
 
 COPY start.sh /minecraft/
+COPY server.properties /minecraft/
 
 RUN apt-get update && \
 	apt-get upgrade --yes --force-yes && \
@@ -27,7 +28,7 @@ RUN /minecraft/FTBInstall.sh
 EXPOSE 25565
 VOLUME ["/minecraft/world"]
 
-ENV MAX_RAM="4096M"
-ENV MIN_RAM="4096M"
+ENV MAX_RAM="7G"
+ENV MIN_RAM="6G"
 
 CMD ["/bin/bash", "start.sh"]
