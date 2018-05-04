@@ -21,9 +21,14 @@ RUN apt-get update && \
 	echo "eula=TRUE" >> eula.txt && \
 	chown -R minecraft:minecraft /minecraft
 USER minecraft
-
 RUN /minecraft/FTBInstall.sh
-
 EXPOSE 25565
 VOLUME ["/minecraft/world"]
-CMD ["/bin/bash", "/minecraft/ServerStart.sh"]
+
+ENV JAVA_PARAMETERS="-XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:+CMSClassUnloadingEnabled -XX:ParallelGCThreads=5 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10"
+ENV MAX_RAM="4096M"
+ENV MIN_RAM="4096M"
+
+ADD start.sh /start.sh
+RUN chmod 0755 /start.sh
+CMD ["/bin/bash", "start.sh"]
