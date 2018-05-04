@@ -1,5 +1,5 @@
 
-FROM java:88-jre
+FROM java:8-jre
 
 LABEL maintainer='kappabull <kappabull@gmail.com>'
 
