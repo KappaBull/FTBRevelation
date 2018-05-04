@@ -1,7 +1,7 @@
 
 FROM java:8-jre
 
-LABEL maintainer='kappabull <kappabull@gmail.com>'
+LABEL maintainer='kappabull <kappa8v11@gmail.com>'
 
 WORKDIR /minecraft
 USER root
@@ -27,7 +27,6 @@ RUN /minecraft/FTBInstall.sh
 EXPOSE 25565
 VOLUME ["/minecraft/world"]
 
-ENV JAVA_PARAMETERS="-XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:+CMSClassUnloadingEnabled -XX:ParallelGCThreads=5 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10"
 ENV MAX_RAM="4096M"
 ENV MIN_RAM="4096M"
 
